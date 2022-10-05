@@ -19,7 +19,7 @@ jobs:
         with:
           name: build
           path: ./frontend-notes/build/
-      - run: ls
+      - run: cd frontend-notes/ & ls
   deploy:
       needs: build-frontend
       name: Deploy app
