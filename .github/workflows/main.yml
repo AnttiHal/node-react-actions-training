@@ -30,6 +30,8 @@ jobs:
         - uses: actions/download-artifact@main
           with:
             name: build
+        - name: 'Echo download path'
+          run: echo ${{steps.download.outputs.download-path}}
         - run: cd frontend-notes & ls
         - uses: superfly/flyctl-actions/setup-flyctl@master
         - run: flyctl deploy --remote-only
