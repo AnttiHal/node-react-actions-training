@@ -17,25 +17,18 @@ jobs:
         working-directory: ./frontend-notes
       - uses: actions/upload-artifact@v3
         with:
-          name: my-artifact
+          name: build-artifact
           path: frontend-notes/build/
-      - run: mv build ..
-        working-directory: ./frontend-notes/
 
   deploy:
       runs-on: ubuntu-latest
       needs: build-frontend
-      steps:
-        
+      steps: 
+        - uses: actions/checkout@v2
         - uses: actions/download-artifact@v3
-          id: download
           with:
-            name: my-artifact
+            name: build-artifact
             path: build
-        - name: test artifact download
-          run: ls -R
-        - name: 'Echo download path'
-          run: echo ${{steps.download.outputs.download-path}}
         - uses: superfly/flyctl-actions/setup-flyctl@master
         - run: flyctl deploy --remote-only
   
