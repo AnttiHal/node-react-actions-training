@@ -20,7 +20,7 @@ const Note = ({note, handleImportance, handleDefaultContentChange, handleChange,
                 
             />
             <button onClick={handleClick}>vaihda sisältö</button>
-            <button onClick={handleDefaultContentChange}>Vaihda oletussisällöksi</button>
+            <button onClick={handleDefaultContentChange}>Vaihda oletussisällöksi testi</button>
             <button onClick={handleDelete}>Poista</button>
         </li>
     )
