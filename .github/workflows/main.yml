@@ -8,13 +8,11 @@ env:
 jobs:
   build-frontend:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./frontend-notes
     steps:
       - uses: actions/checkout@v2
       - name: npm install and build frontend
         run: |
+          cd frontend-notes
           npm install
           npm run build --if-present
       - uses: actions/upload-artifact@main
