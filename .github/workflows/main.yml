@@ -30,6 +30,7 @@ jobs:
         - uses: actions/download-artifact@main
           with:
             name: build
+        - run: ls
         - uses: superfly/flyctl-actions/setup-flyctl@master
         - run: flyctl deploy --remote-only
   
