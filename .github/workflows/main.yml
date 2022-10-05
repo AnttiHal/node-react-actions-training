@@ -10,9 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: frontend-notes
+        working-directory: ./frontend-notes
     steps:
-      - run: ls
       - uses: actions/checkout@v2
       - name: npm install and build frontend
         run: |
@@ -21,7 +20,7 @@ jobs:
       - uses: actions/upload-artifact@main
         with:
           name: frontend-build
-          path: build
+          path: ./frontend-notes/build
   deploy:
       needs: build-frontend
       name: Deploy app
