@@ -19,7 +19,7 @@ jobs:
           npm run build --if-present
       - uses: actions/upload-artifact@main
         with:
-          name: frontend-build
+          name: build
           path: ./frontend-notes/build
   deploy:
       needs: build-frontend
@@ -29,7 +29,7 @@ jobs:
         - uses: actions/checkout@v2
         - uses: actions/download-artifact@main
           with:
-            name: frontend-build
+            name: build
         - uses: superfly/flyctl-actions/setup-flyctl@master
         - run: flyctl deploy --remote-only
   
