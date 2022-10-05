@@ -20,7 +20,7 @@ jobs:
       - uses: actions/upload-artifact@main
         with:
           name: build
-          path: ./frontend-notes/build
+          path: ./frontend-notes/build/
   deploy:
       needs: build-frontend
       name: Deploy app
