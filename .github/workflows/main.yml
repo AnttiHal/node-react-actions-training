@@ -8,18 +8,23 @@ env:
 jobs:
   build-frontend:
     runs-on: ubuntu-latest
+    defaults:
+      run: 
+        working-directory: 
     steps:
       - uses: actions/checkout@v2
       - name: npm install and build frontend
         run: |
           cd frontend-notes
           npm install
-          npm run build --if-present
+          npm run build
+        working-directory: ./frontend-notes
       - uses: actions/upload-artifact@main
         with:
           name: build
           path: ./frontend-notes/build/
-      - run: cd frontend-notes/ & ls
+      - run: ls
+        working-directory: ./frontend-notes
   deploy:
       needs: build-frontend
       name: Deploy app
