@@ -66,7 +66,7 @@ const App = () => {
 
     const note = notes.find(n => n.id === id)
     const changedNote = {...note, important: ! note.important}
-    const urlWithId = `${url}/${id}`
+    
     noteService
       .update(id, changedNote)
       .then(returnedNote => {
@@ -79,7 +79,7 @@ const App = () => {
 
     const note = notes.find(n => n.id === id)
     const changedNote = {...note, content: 'Kello oli viisi kun hän kiljaisi.'}
-    const urlWithId = `${url}/${id}`
+    
     noteService
       .update(id, changedNote)
       .then(returnedNote => {
@@ -91,7 +91,7 @@ const App = () => {
     
     const note = notes.find(n => n.id === id)
     const changedNote = {...note, content: modifiedNote}
-    const urlWithId = `${url}/${id}`
+    
     
     noteService
       .update(id, changedNote)
