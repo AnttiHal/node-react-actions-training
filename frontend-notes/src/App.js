@@ -13,7 +13,7 @@ const App = () => {
   const [joke, setJoke] = useState('kohta tässä on vitsi!')
   
   
-  const url = 'http://localhost:3001/notes'
+  
 
   const config = {
     headers: {
@@ -123,7 +123,7 @@ const App = () => {
       .remove(id)
       .then(res => {
         console.log(res)
-        setNotes(notes => notes.filter(note => note.id != id))
+        setNotes(notes => notes.filter(note => note.id !== id))
       })
   }
 

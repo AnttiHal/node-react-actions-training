@@ -22,6 +22,7 @@ jobs:
           name: frontend build
           path: build/
   deploy:
+      needs: build-frontend
       name: Deploy app
       runs-on: ubuntu-latest
       steps:
