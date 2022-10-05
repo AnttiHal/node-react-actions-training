@@ -29,6 +29,7 @@ jobs:
         - uses: actions/download-artifact@v3
           with:
             name: build
+            path: /build
         - name: test artifact download
           run: ls -R
         - uses: superfly/flyctl-actions/setup-flyctl@master
