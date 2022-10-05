@@ -19,22 +19,18 @@ jobs:
         with:
           name: build
           path: ./frontend-notes/build/
-      - run: ls
+      - run: mv build ..
         working-directory: ./frontend-notes
-  deploy:
-      needs: build-frontend
-      name: Deploy app
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - uses: actions/download-artifact@main
-          with:
-            name: build
-        - name: 'Echo download path'
-          run: echo ${{steps.download.outputs.download-path}}
-        - run: cd frontend-notes & ls
-        - uses: superfly/flyctl-actions/setup-flyctl@master
-        - run: flyctl deploy --remote-only
+
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@main
+        with:
+          name: build
+      - name: 'Echo download path'
+        run: echo ${{steps.download.outputs.download-path}}
+      - run: ls
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - run: flyctl deploy --remote-only
   
         
         
